@@ -39,6 +39,6 @@ end
   end
 
   def signed_in?
-    @current_user_id.present?
+    !!current_user
   end
 end
