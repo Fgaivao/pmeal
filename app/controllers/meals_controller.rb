@@ -5,7 +5,7 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
-    @meals = Meal.all
+    @meals = Meal.where(:user_id => current_user.id)
   end
 
   # GET /meals/1
