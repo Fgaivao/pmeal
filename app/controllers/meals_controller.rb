@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_meal, only: %i[ show update destroy ]
+  validate :date_scope
 
   # GET /meals
   # GET /meals.json
@@ -51,4 +52,10 @@ class MealsController < ApplicationController
     def meal_params
       params.fetch(:meal).permit(:name, :user_id, :vegetarian, :week, :proteins, :hydrates, :vegetables, :protconfection, :hydconfection, :hortconfection, :protperc, :hydperc, :hortperc)
     end
+
+    def date_scope
+    if Meal.where("user_id = ? AND DATE(created_at) = DATE(?)", self.user_id, Time.now).all.any?
+      errors.add(:user_id, "Só pode criar uma refeição por dia")
+    end
+  end
 end
