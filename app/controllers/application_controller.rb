@@ -10,7 +10,7 @@ private
 
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :weight, :gender, :height, :goal, :diet])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :dateofbirth, :weight, :gender, :height, :goal, :diet])
   end
 
 
