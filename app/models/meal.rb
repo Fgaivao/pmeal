@@ -1,5 +1,6 @@
 class Meal < ApplicationRecord
   belongs_to :user
+  validates :name, :proteins, :hydrates, :vegetables, :protconfection, :hydconfection, :hortconfection, :hydperc, :hortperc, presence: true
  # validate :date_scope
 
  # private
