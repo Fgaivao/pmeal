@@ -51,6 +51,6 @@ class MealsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meal_params
-      params.fetch(:meal).require(:name, :user_id, :vegetarian, :week, :proteins, :hydrates, :vegetables, :protconfection, :hydconfection, :hortconfection, :protperc, :hydperc, :hortperc, :healthyscore)
+      params.fetch(:meal).permit(:name, :user_id, :vegetarian, :week, :proteins, :hydrates, :vegetables, :protconfection, :hydconfection, :hortconfection, :protperc, :hydperc, :hortperc, :healthyscore)
     end
 end
