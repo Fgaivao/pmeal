@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_meal, only: %i[ show update destroy ]
+  validate :create
 
 
 
