@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_meal, only: %i[ show update destroy ]
+  validates :name, :user_id, :vegetarian, :week, :proteins, :hydrates, :vegetables, :protconfection, :hydconfection, :hortconfection, :protperc, :hydperc, :hortperc, :healthyscore, presence: true
 
 
 
